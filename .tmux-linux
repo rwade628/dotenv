@@ -1,0 +1,25 @@
+# Set left side status bar length and style
+set -g status-left-length 60
+set -g status-left-style default
+
+# Display the session name
+set -g status-left "#[fg=#B9F6CA] ❐ #S #[default]"
+
+# Display the os version (PopOs!)
+set -ag status-left " #[fg=black] #[fg=#5CF19E]  #(ifconfig enp37s0 | awk '$1 == \"inet\" { print $2 }') #[default]"
+
+# Set right side status bar length and style
+set -g status-right-length 140
+set -g status-right-style default
+
+# Display the cpu load (Mac OS)
+# set -g status-right "#[fg=black,bg=default]  #(top -l 1 | grep -E "^CPU" | sed 's/.*://') #[default]"
+
+# Display the date
+set -g status-right "#[fg=white,bg=default] 󰃭 %a %d #[default]"
+
+# Display the time
+set -ag status-right "#[fg=#FF4081,bg=default] ⌚︎%l:%M %p #[default]"
+
+# Display the hostname
+# set -ag status-right "#[fg=cyan,bg=default] ☠ #H #[default]"
