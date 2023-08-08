@@ -7,6 +7,7 @@ local M = {
   dependencies = {
     {
       "hrsh7th/cmp-nvim-lsp",
+      "b0o/SchemaStore.nvim",
       -- commit = "0e6b2ed705ddcff9738ec4ea838141654f12eeef",
     },
   },
@@ -45,22 +46,6 @@ function M.config()
 
     if client.name == "sumneko_lua" then
       client.server_capabilities.documentFormattingProvider = false
-    end
-
-    -- workaround for gopls not supporting semanticTokensProvider
-    -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
-    if client.name == "gopls" then
-      if not client.server_capabilities.semanticTokensProvider then
-        local semantic = client.config.capabilities.textDocument.semanticTokens
-        client.server_capabilities.semanticTokensProvider = {
-          full = true,
-          legend = {
-            tokenTypes = semantic.tokenTypes,
-            tokenModifiers = semantic.tokenModifiers,
-          },
-          range = true,
-        }
-      end
     end
 
     lsp_keymaps(bufnr)

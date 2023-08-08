@@ -28,15 +28,14 @@ function M.config()
       -- ### Code Actions
       codeactions.gomodifytags,
       -- #### Formatting
-      formatting.prettier.with {
-        extra_filetypes = { "toml" },
+      formatting.prettierd.with {
+        extra_filetypes = { "yaml", "toml" },
       },
       formatting.stylua,
       formatting.google_java_format,
-      formatting.gofumpt,
-      formatting.goimports_reviser.with({
+      formatting.goimports_reviser.with {
         extra_args = { "-use-cache" },
-      }),
+      },
       formatting.terraform_fmt,
       -- ### Diagnostics
       diagnostics.actionlint,
@@ -52,7 +51,7 @@ function M.config()
             -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
             -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
             -- vim.lsp.buf.formatting_sync()
-            -- vim.lsp.buf.format { async = false }
+            vim.lsp.buf.format { async = false, timeout = 5000 }
           end,
         })
       end
