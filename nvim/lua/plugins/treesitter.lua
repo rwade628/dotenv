@@ -13,10 +13,17 @@ local M = {
       event = "VeryLazy",
       -- commit = "0568104bf8d0c3ab16395433fcc5c1638efc25d4",
     },
+    {
+      "windwp/nvim-ts-autotag",
+      -- event = "LazyFile",
+      opts = {
+        enable_after_quote = false,
+      },
+    },
   },
 }
 function M.config()
-  local treesitter = require "nvim-treesitter"
+  -- local treesitter = require "nvim-treesitter"
   local configs = require "nvim-treesitter.configs"
 
   configs.setup {
@@ -35,16 +42,17 @@ function M.config()
       "gosum",
       "javascript",
       "typescript",
+      "tsx",
       "terraform",
       "json",
       "yaml",
-    },                       -- put the language you want in this array
+    }, -- put the language you want in this array
     -- ensure_installed = "all", -- one of "all" or a list of languages
     ignore_install = { "" }, -- List of parsers to ignore installing
-    sync_install = false,    -- install languages synchronously (only applied to `ensure_installed`)
+    sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 
     highlight = {
-      enable = true,       -- false will disable the whole extension
+      enable = true, -- false will disable the whole extension
       disable = { "css" }, -- list of language that will be disabled
     },
     autopairs = {

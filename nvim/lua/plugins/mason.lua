@@ -9,10 +9,10 @@ local M = {
       -- commit = "93e58e100f37ef4fb0f897deeed20599dae9d128",
       lazy = true,
     },
-    {
-      "jay-babu/mason-null-ls.nvim",
-      lazy = true,
-    },
+    -- {
+    --   "jay-babu/mason-null-ls.nvim",
+    --   lazy = true,
+    -- },
   },
 }
 
@@ -46,10 +46,10 @@ function M.config()
     },
     automatic_installation = true,
   }
-  require("mason-null-ls").setup {
-    ensure_installed = nil,
-    automatic_installation = true,
-  }
+  -- require("mason-null-ls").setup {
+  --   ensure_installed = nil,
+  --   automatic_installation = true,
+  -- }
 end
 
 return M
