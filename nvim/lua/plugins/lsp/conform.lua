@@ -19,7 +19,11 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       python = { "isort", "black" },
+      json = { { "prettier", "prettierd" } },
       javascript = { { "prettier", "prettierd" } },
+      typescript = { { "prettier", "prettierd" } },
+      javascriptreact = { { "prettier", "prettierd" } },
+      typescriptreact = { { "prettier", "prettierd" } },
       go = { "goimports", "gofumpt" },
     },
     -- Set up format-on-save
