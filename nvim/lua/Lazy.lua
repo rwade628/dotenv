@@ -22,6 +22,9 @@ require("lazy").setup {
     { import = "plugins" },
   },
   install = { colorscheme = { require("plugins.colorscheme").name } },
+  -- rocks = {
+  --   enabled = false
+  -- },
   defaults = {
     lazy = true,
     version = false,
